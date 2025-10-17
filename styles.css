@@ -7,10 +7,6 @@ body {
     box-sizing: border-box;
 }
 
-/* --- Background Setup --- */
-.site-container {
-    /* BACKGROUND FIX: Use the most robust path for local files */
-    .site-container {
     /* Change the extension from .jpg to .png */
     background-image: url('panda-bg.png'); 
     background-size: cover;
@@ -269,3 +265,4 @@ body {
     background-color: #10b981; /* Darker green on hover */
 
 }
+
