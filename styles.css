@@ -7,11 +7,11 @@ body {
     box-sizing: border-box;
 }
 
-    /* Change the extension from .jpg to .png */
-    background-image: url('panda-bg.png'); 
+/* --- Background Setup --- */
+.site-container {
+    /* BACKGROUND FIX: Use the most robust path for local files */
+    background-image: url('./panda-bg.png'); 
     background-size: cover;
-    /* ... rest of your code ... */
-}
     background-position: center;
     min-height: 100vh;
     position: relative;
@@ -263,6 +263,4 @@ body {
 
 .buy-button:hover {
     background-color: #10b981; /* Darker green on hover */
-
 }
-
