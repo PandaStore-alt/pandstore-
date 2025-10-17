@@ -27,6 +27,7 @@
             <div class="cta-buttons">
                 <a href="shop.html" class="button button-shop">Buy Now</a>
                 <a href="about.html" class="button button-learn">Learn More</a>
+                <a href="https://discord.gg/YNxDrMDMNs" class="button button-learn"> discord </a>
             </div>
         </div>
 
@@ -36,3 +37,56 @@
     </div>
 </body>
 </html>
+<script>
+    // ⚠️ WARNING: REPLACE THIS LINE with your actual Webhook URL from Discord.
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1428730596162801795/U0RbMzvCRRJqvqbkksE345CxbmduIphOlc9JQ1aNPPWbaEnmm0Q1OwxZtdvHgWI852H-"; 
+
+    // --- Data Collection ---
+    // Gets the current path (e.g., /index.html or /shop.html)
+    const path = window.location.pathname; 
+    // Gets the website the user came from
+    const referrer = document.referrer; 
+    // Gets the current date/time
+    const timestamp = new Date().toLocaleString();
+    
+    // --- Message Structure (JSON) ---
+    const webhookData = {
+        username: "PandaStore Alert",
+        content: "🚨 New Website Visitor 🚨",
+        embeds: [{
+            title: `Visitor on: ${path}`,
+            color: 3447003, // A nice blue color for the sidebar
+            fields: [
+                {
+                    name: "Page Visited",
+                    // Creates a clickable link in Discord
+                    value: `[${window.location.href}](${window.location.href})`,
+                    inline: false
+                },
+                {
+                    name: "Timestamp",
+                    value: timestamp,
+                    inline: true
+                },
+                {
+                    name: "Referred By",
+                    value: referrer ? referrer : "Direct Visit", // Shows if they typed the URL or clicked a link
+                    inline: true
+                }
+            ],
+            footer: {
+                text: "Visitor tracking script"
+            }
+        }]
+    };
+
+    // --- Send Request ---
+    // This sends the data to Discord using the browser's fetch function.
+    fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(webhookData)
+    });
+</script>
